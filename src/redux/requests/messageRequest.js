@@ -14,3 +14,14 @@ export function callMessage (payload) {
     });
 }
 
+export function getMessages () {
+    const config = {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+    };
+
+    return axios.get(`${CONSTANTS.apiBaseUrl}/message`, config) 
+        .then(response => response.data)
+        .catch((error) => {throw error; });
+}
+

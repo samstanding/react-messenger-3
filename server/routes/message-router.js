@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const Message = require('../models/Person');
 
 router.post('/', (req, res) => {
-    console.log(req.body);
     let newMessage = new Message (req.body);
     newMessage.save((error, savedItem) => {
         if (error) {
@@ -12,6 +11,17 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         } else { 
             res.sendStatus(200);
+        }
+    })
+})
+
+router.get('/', (req, res) => {
+    Message.find({}, (error, foundMessages) => {
+        if (error) {
+            console.log('error on get: ', error);
+            res.sendStatus(500);
+        } else {
+            res.send(foundMessages);
         }
     })
 })

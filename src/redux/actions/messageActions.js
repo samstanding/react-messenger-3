@@ -1,6 +1,11 @@
 export const MESSAGE_ACTIONS = {
     SEND: 'SEND',
-    GATHER: 'GATHER'
+    GATHER: 'GATHER',
+    REQUEST_START: 'REQUEST_START',
+    REQUEST_DONE: 'REQUEST_DONE',
+    SET_MESSAGES: 'SET_MESSAGES',
+    GET_FAILED: 'GET_FAILED',
+    GET: 'GET'
 }
 
 
@@ -11,3 +16,7 @@ export const triggerSend = (name, message) => ({
         message
     }
 });
+
+export function fetchMessages () {
+    return {type: MESSAGE_ACTIONS.GET};
+}
