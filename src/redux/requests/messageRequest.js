@@ -21,7 +21,9 @@ export function getMessages () {
     };
 
     return axios.get(`${CONSTANTS.apiBaseUrl}/message`, config) 
-        .then(response => response.data)
+        .then((response) => {
+            console.log(response.data); 
+        }) 
         .catch((error) => {throw error; });
 }
 

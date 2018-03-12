@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { triggerSend } from '../redux/actions/messageActions';
+import GetMessage from '../components/messages'
 
 const propTypes = {
     dispatch: PropTypes.func,
@@ -84,6 +85,7 @@ const propTypes = {
                 />
               </div>
             </form>
+            <GetMessage />
           </div>
         );
       }
