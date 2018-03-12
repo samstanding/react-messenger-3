@@ -4,7 +4,8 @@ import { MESSAGE_ACTIONS } from '../actions/messageActions';
 const messages = (state = null, action) => {
   switch (action.type) {
     case MESSAGE_ACTIONS.SET_MESSAGES:
-      return action.message.messages || state;
+    console.log(action.message[0]);
+      return action.message|| state;
     default:
       return state;
   }

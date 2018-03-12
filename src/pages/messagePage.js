@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { triggerSend } from '../redux/actions/messageActions';
-import GetMessage from '../components/messages'
+import GetMessage from '../components/Messages'
 
 const propTypes = {
     dispatch: PropTypes.func,

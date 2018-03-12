@@ -6,8 +6,8 @@ import {
   Switch,
 } from 'react-router-dom';
 import {Header} from './components/Header';
-import Message from './pages/messagePage';
-import getMessages  from './pages/showPage';
+import Message from './pages/MessagePage';
+import ShowPage  from './pages/ShowPage';
 
 // import './styles/main.css';
 
@@ -23,7 +23,7 @@ const App = () => (
         />
         <Route 
           path="/show"
-          component={getMessages}
+          component={ShowPage}
           />
         </Switch>
         </Router>
