@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchMessages } from '../redux/actions/messageActions';
 
 const propTypes = {
     dispatch: PropTypes.func,
-    messages: PropTypes.shape({ name: PropTypes.string, message: PropTypes.string, isLoading: PropTypes.bool }),
+    list: PropTypes.shape({ messages: [], isLoading: PropTypes.bool }),
     history: PropTypes.shape({ push: PropTypes.func }),
   };
 
   const defaultProps = {
     dispatch: () => {},
-    messages: { name: null, message: null, isLoading: true },
+    list: { messages: [], isLoading: true },
     history: { push: () => {} },
   };
 
   const mapStateToProps = state => ({
-    name: state.name,
-    message: state.message,
+    list: state.messages.messages,
   });
-
+ 
+  
+  
   class GetMessage extends Component {
       constructor(props) {
           super(props);
@@ -30,22 +31,28 @@ const propTypes = {
       componentDidMount() {
         this.props.dispatch(fetchMessages());
       }
-
+      
       render() {
-          let content = null;
-
-          if (this.props.messages) {
-              content = (
-                  <div>
-                      <p> {this.props.messages.name} {this.props.messages.message}</p>
-                      </div>
-              );
+        
+        let content;
+        if (this.props.list) {
+          content = (
+                <div>
+                    <ul className="messageList">
+                    {this.props.list.map(message => (
+                      <li key={message.id}> {message.name} says: {message.message}</li>
+                    ))}
+                    </ul>
+                    </div>
+            );
           }
-          return (
-              <div>
-                  {content}
-                  </div>
-          )
+        
+        return (
+            <div>
+                {content}
+                </div>
+        
+        )
       }
   }
 

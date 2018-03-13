@@ -33,9 +33,9 @@ const propTypes = {
     }
 
     send(event) {
-        event.preventDefault();
-        console.log(this.state.name, this.state.message);
+       
         this.props.dispatch(triggerSend(this.state.name, this.state.message));
+        this.refs.form.reset();
     }
       
     
@@ -53,7 +53,7 @@ const propTypes = {
       render() {
         return (
           <div>
-            <form onSubmit={this.send}>
+            <form onSubmit={this.send} ref="form">
               <h1>Send a Message!</h1>
               <div>
                 <label htmlFor="name">

@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import {Header} from './components/Header';
 import Message from './pages/MessagePage';
-import ShowPage  from './pages/ShowPage';
+
 
 // import './styles/main.css';
 
@@ -21,10 +21,6 @@ const App = () => (
           path="/home"
           component={Message}
         />
-        <Route 
-          path="/show"
-          component={ShowPage}
-          />
         </Switch>
         </Router>
   </div>
